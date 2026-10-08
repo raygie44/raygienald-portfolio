@@ -49,6 +49,9 @@ class ExportStatic extends Command
     protected function write(string $path, string $html, string $fake): void
     {
         File::ensureDirectoryExists(dirname($path));
+        // route('home') has no trailing slash, so "<host>#work" and href="<host>" would become "#work" and "".
+        $html = str_replace([$fake . '#', 'href="' . $fake . '"'], ['/#', 'href="/"'], $html);
+
         File::put($path, str_replace($fake, '', $html));
     }
 }
