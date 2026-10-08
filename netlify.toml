@@ -1,2 +1,6 @@
-[build] 
-  publish = "dist"
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  PHP_VERSION = "8.4"
