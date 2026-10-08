@@ -73,8 +73,12 @@ return [
             'role'             => 'Admin developer',       // e.g. 'Full-stack developer'
             'image'            => 'images/projects/learning-management-system-als-sison/main.png',
             'gallery'          => [
-            
+             'images/projects/learning-management-system-als-sison/1.png',
              'images/projects/learning-management-system-als-sison/2.png',
+             'images/projects/learning-management-system-als-sison/3.png',
+             'images/projects/learning-management-system-als-sison/4.png',
+             'images/projects/learning-management-system-als-sison/6.png',
+             'images/projects/learning-management-system-als-sison/5.png',
             ],
             'features'         => ['User login', 'Lessons', 'Quizzes', 'Enrollment','Online Module','ladderized Program'],         // e.g. ['User login', 'Lessons', 'Quizzes']
             'technologies'     => ['Laravel', 'PHP', 'MySQL','HTML','Angular','Angular Material'],         // e.g. ['Laravel', 'PHP', 'MySQL']
@@ -95,9 +99,15 @@ return [
             'date'             => null,
             'role'             => null,
             'image'            => 'images/projects/item-monitoring-system-nlac/main.jpg',
-            'gallery'          => [],
-            'features'         => [],
-            'technologies'     => [],
+            'gallery'          => [
+                'images/projects/item-monitoring-system-nlac/1.png',
+                'images/projects/item-monitoring-system-nlac/2.png',
+                'images/projects/item-monitoring-system-nlac/3.png',
+                'images/projects/item-monitoring-system-nlac/4.png',
+                'images/projects/item-monitoring-system-nlac/5.png',
+            ],
+            'features'         => ['Item Management','Inventory Monitoring','Item Location Tracking','Item Statuss'],
+            'technologies'     => ['PHP', 'MySQL','HTML','Angular','CSS'],
             'goal'             => 'Ensure the safety and proper handling of belongings, preventing loss or unauthorized access.',
             'challenges'       => null,
             'solution'         => null,
@@ -115,9 +125,15 @@ return [
             'date'             => null,
             'role'             => null,
             'image'            => 'images/projects/primary-education-registration-system/main.jpg',
-            'gallery'          => [],
-            'features'         => [],
-            'technologies'     => [],
+            'gallery'          => [
+                'images/projects/primary-education-registration-system/1.png',
+                'images/projects/primary-education-registration-system/2.png',
+                'images/projects/primary-education-registration-system/3.png',
+                'images/projects/primary-education-registration-system/4.png'
+                
+            ],
+            'features'         => ['Online Registration'],
+            'technologies'     => ['PHP', 'MySQL','HTML','Angular','CSS'],
             'goal'             => 'Make school enrollment easier and more efficient for parents.',
             'challenges'       => null,
             'solution'         => null,
@@ -130,8 +146,8 @@ return [
 
     'skills' => [
         'Programming'          => ['JavaScript', 'PHP', 'HTML', 'CSS'],
-        'Frameworks'           => ['Laravel', 'Angular', 'Tailwind CSS'],
-        'Database'             => ['MySQL'],
+        'Frameworks'           => ['Laravel', 'Angular', 'Tailwind CSS','React'],
+        'Database'             => ['MySQL / MariaDB','MongDB','SQlite','PostgreSQL','Supabase'],
         'Hardware and support' => ['Desktop and laptop repair', 'Hardware installation and configuration', 'Basic networking', 'Troubleshooting'],
         'Creative and office'  => ['Adobe Creative apps', 'Photo and video editing', 'Microsoft Office (Excel, Word, PowerPoint)'],
     ],
