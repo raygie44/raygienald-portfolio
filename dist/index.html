@@ -3,753 +3,94 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<title>Raygienald B.Curameng – Web Developer</title>
-
+<title>Raygienald B. Curameng – Web Developer</title>
+<meta name="description" content="I build web apps with PHP, Laravel and MySQL, and I can also fix hardware, troubleshoot networks and edit photos and videos. I hold a BS in Information Technology from Northern Luzon Adventist College.">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.dataset.theme = t;
+  document.documentElement.classList.add('js');
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg:#e9eef3;
-  --ink:#14213d;
-  --muted:#51607a;
-  --line:#c5d0dc;
-  --accent:#2447f5;
-  --on-accent:#fff;
-  --cell0:#d3dce6;
-  --cell1:#9db2f7;
-  --cell2:#5f7df6;
-  --cell3:#2447f5;
-
-  --display:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;
-  --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
-
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-
-@media (prefers-color-scheme:dark) {
-  :root:not([data-theme="light"]) {
-    --bg:#0f1624;
-    --ink:#e8edf6;
-    --muted:#9aa8c2;
-    --line:#26324a;
-    --accent:#7b93ff;
-    --on-accent:#0f1624;
-    --cell0:#1a2438;
-    --cell1:#2c3f78;
-    --cell2:#4a62c9;
-    --cell3:#7b93ff;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:#0f1624;
-  --ink:#e8edf6;
-  --muted:#9aa8c2;
-  --line:#26324a;
-  --accent:#7b93ff;
-  --on-accent:#0f1624;
-  --cell0:#1a2438;
-  --cell1:#2c3f78;
-  --cell2:#4a62c9;
-  --cell3:#7b93ff;
-}
-
-html {
-  scroll-padding-top:env(safe-area-inset-top,0px);
-}
-
-* {
-  box-sizing:border-box;
-}
-
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font:400 1.0625rem/1.6 var(--body);
-}
-
-a {
-  color:inherit;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline:3px solid var(--accent);
-  outline-offset:3px;
-}
-
-.wrap {
-  max-width:62rem;
-  margin:0 auto;
-  padding:0 1.5rem;
-}
-
-/* HEADER */
-header {
-  padding:1.5rem 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-header strong {
-  font:700 1.1rem var(--display);
-}
-
-nav {
-  display:flex;
-  gap:1.5rem;
-}
-
-nav a {
-  text-decoration:none;
-  font-weight:500;
-  color:var(--muted);
-}
-
-nav a:hover {
-  color:var(--ink);
-}
-
-/* HERO */
-.hero {
-  padding:4rem 0 3rem;
-}
-
-.hero-top {
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:2rem 3rem;
-  align-items:end;
-}
-
-/* Smaller name */
-h1 {
-  font:800 clamp(1.5rem, 3vw, 2.8rem)/1 var(--display);
-  letter-spacing:-0.02em;
-  margin:0 0 1.5rem;
-}
-
-.lede {
-  max-width:34rem;
-  font-size:1.25rem;
-  color:var(--muted);
-  margin:0 0 2rem;
-}
-
-.photo {
-  width:min(18rem,32vw);
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border-radius:.5rem;
-  border:2px solid var(--ink);
-  display:block;
-}
-
-/* BUTTONS */
-.btns {
-  display:flex;
-  gap:.75rem;
-  flex-wrap:wrap;
-}
-
-.btn {
-  display:inline-block;
-  padding:.8rem 1.4rem;
-  border-radius:.4rem;
-  font-weight:600;
-  text-decoration:none;
-  border:2px solid var(--ink);
-}
-
-.btn.main {
-  background:var(--accent);
-  border-color:var(--accent);
-  color:var(--on-accent);
-}
-
-/* ACTIVITY GRID */
-.grid-wrap {
-  margin-top:3rem;
-  overflow-x:auto;
-}
-
-#grid {
-  display:grid;
-  grid-template-rows:repeat(7,1fr);
-  grid-auto-flow:column;
-  gap:4px;
-  min-width:40rem;
-}
-
-#grid i {
-  display:block;
-  aspect-ratio:1;
-  border-radius:2px;
-  background:var(--cell0);
-}
-
-.cap {
-  font-size:.9rem;
-  color:var(--muted);
-  margin:.75rem 0 0;
-}
-
-/* SECTIONS */
-section {
-  padding:3.5rem 0;
-  border-top:1px solid var(--line);
-}
-
-h2 {
-  font:700 2rem/1.1 var(--display);
-  letter-spacing:-.02em;
-  margin:0 0 2rem;
-}
-
-/* EXPERIENCE / PROJECTS */
-.proj {
-  display:grid;
-  grid-template-columns:1fr 2fr;
-  gap:1rem 2rem;
-  padding:1.5rem 0;
-  border-top:1px solid var(--line);
-}
-
-.proj:first-of-type {
-  border-top:0;
-  padding-top:0;
-}
-
-.proj h3 {
-  font:700 1.4rem var(--display);
-  margin:0;
-}
-
-.proj h3 a {
-  text-decoration:none;
-}
-
-.proj h3 a:hover {
-  color:var(--accent);
-}
-
-.proj p {
-  margin:0 0 .5rem;
-}
-
-.proj ul {
-  margin:0;
-  padding-left:1.1rem;
-}
-
-.proj li {
-  margin-bottom:.35rem;
-}
-
-.when {
-  color:var(--muted);
-  margin:.25rem 0 0;
-}
-
-.tags {
-  color:var(--muted);
-  font-size:.95rem;
-}
-
-/* SKILLS */
-.skills {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
-  gap:2rem;
-}
-
-.skills h3 {
-  font:700 1.1rem var(--display);
-  margin:0 0 .5rem;
-}
-
-.skills p {
-  margin:0;
-  color:var(--muted);
-}
-
-/* FOOTER */
-footer {
-  padding:3.5rem 0 4rem;
-  border-top:1px solid var(--line);
-}
-
-footer .mail {
-  font: 600 1.1rem var(--display);
-  letter-spacing: 0;
-  word-break: break-all;
-}
-
-footer p {
-  color:var(--muted);
-}
-
-/* MOBILE */
-@media (max-width:40rem) {
-
-  .hero-top {
-    grid-template-columns:1fr;
-  }
-
-  .photo {
-    width:10rem;
-  }
-
-  .proj {
-    grid-template-columns:1fr;
-  }
-
-  .hero {
-    padding-top:2rem;
-  }
-
-  nav {
-    gap:1rem;
-  }
-
-  h1 {
-    font-size:2rem;
-  }
-}
-
-/* ANIMATION */
-@media (prefers-reduced-motion:no-preference) {
-
-  #grid i {
-    animation:pop .5s both;
-  }
-
-  @keyframes pop {
-    from {
-      opacity:0;
-      transform:scale(.4);
-    }
-  }
-}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/portfolio.css">
 </head>
-
 <body>
 
-<div class="wrap">
-
-<header>
-
-  <strong>Raygienald B.Curameng</strong>
-
-  <nav aria-label="Main">
-    <a href="#experience">Experience</a>
-    <a href="#work">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
+<header class="site">
+  <div class="container bar">
+    <a class="brand" href="/">Raygienald B. Curameng</a>
+    <nav id="site-nav" class="site-nav" aria-label="Main"><a href="/#experience">Experience</a><a href="/#work">Projects</a><a href="/#skills">Skills</a><a href="/#contact">Contact</a></nav>
+    <div class="bar-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+        <span class="ico-sun"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span><span class="ico-moon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
 </header>
 
-
 <main>
-
-<!-- HERO -->
-<div class="hero">
-
-  <div class="hero-top">
-
-          <img
-        class="photo"
-        src="/images/me.jpg"
-        alt="Photo of Raygienald B.Curameng"
-        width="288"
-        height="360"
-      >
-    
+<section class="hero">
+  <div class="container hero-grid">
+    <img class="photo" src="/images/me.jpg" alt="Photo of Raygienald B. Curameng" width="240" height="300" fetchpriority="high">
     <div>
-
-      <h1>
-        Raygienald B.<br>
-        Curameng
-      </h1>
-
-      <p class="lede">
-        I build web apps with PHP, Laravel and MySQL, and I can also fix hardware, troubleshoot networks and edit photos and videos. I hold a BS in Information Technology from Northern Luzon Adventist College.
-      </p>
-
-      <div class="btns">
-
-        <a class="btn main" href="#work">
-          See my work
-        </a>
-
-        <a class="btn" href="#contact">
-          Get in touch
-        </a>
-
-      </div>
-
+      <p class="eyebrow">Web Developer</p>
+      <h1>Raygienald B. Curameng</h1>
+      <p class="lede">I build web apps with PHP, Laravel and MySQL, and I can also fix hardware, troubleshoot networks and edit photos and videos. I hold a BS in Information Technology from Northern Luzon Adventist College.</p>
+      <div class="btns"><a class="btn primary" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
+      <ul class="socials"><li><a href="https://github.com/raygie44" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a></li><li><a href="https://www.linkedin.com/in/raygienald-curameng-3275a3368/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></li><li><a href="mailto:curamengray3@gmail.com" aria-label="Email"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg></a></li><li><a href="tel:09617758745" aria-label="Phone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></li></ul>
     </div>
-
   </div>
-
-
-  <!-- GitHub-style activity grid
-  <div class="grid-wrap" aria-hidden="true">
-    <div id="grid"></div>
-  </div> -->
-
-  <!-- <p class="cap">
-    A year of commits, drawn from my sample activity.
-  </p> -->
-
-</div>
-
-
-<!-- EXPERIENCE -->
-<section id="experience">
-
-  <h2>Experience</h2>
-
-  
-    <div class="proj">
-
-      <div>
-
-        <h3>
-          Freelance Editor
-        </h3>
-
-        <p class="when">
-          Self-employed<br>
-          March 2026 – Present
-        </p>
-
-      </div>
-
-      <ul>
-
-        
-          <li>
-            Edit and enhance photos and videos to client requirements.
-          </li>
-
-        
-          <li>
-            Create and modify digital content for personal and business use.
-          </li>
-
-        
-          <li>
-            Talk with clients to understand what they need and deliver on time.
-          </li>
-
-        
-      </ul>
-
-    </div>
-
-  
-    <div class="proj">
-
-      <div>
-
-        <h3>
-          IT Intern
-        </h3>
-
-        <p class="when">
-          Northern Luzon Adventist Hospital<br>
-          Jan 2025 – Apr 2025
-        </p>
-
-      </div>
-
-      <ul>
-
-        
-          <li>
-            Supported the IT team in diagnosing and fixing network connectivity issues.
-          </li>
-
-        
-          <li>
-            Troubleshot, maintained and repaired printers and computer hardware.
-          </li>
-
-        
-          <li>
-            Helped maintain and optimize hospital databases and internal information systems.
-          </li>
-
-        
-      </ul>
-
-    </div>
-
-  
-    <div class="proj">
-
-      <div>
-
-        <h3>
-          Media Videographer and Editor
-        </h3>
-
-        <p class="when">
-          Northeast Luzon Adventist College<br>
-          April 2020 – July 2020
-        </p>
-
-      </div>
-
-      <ul>
-
-        
-          <li>
-            Filmed and edited videos for school programs.
-          </li>
-
-        
-      </ul>
-
-    </div>
-
-  
 </section>
 
+<section id="experience" class="section"><div class="container">
+<h2 class="reveal">Experience</h2><p class="section-intro reveal">Where I've worked and what I did there.</p>
+<div class="jobs">
+<article class="job reveal"><div class="job-head"><div><h3>Freelance Editor</h3><p class="org">Self-employed</p></div><span class="date">March 2026 – Present</span></div><ul class="list"><li>Edit and enhance photos and videos to client requirements.</li><li>Create and modify digital content for personal and business use.</li><li>Edit documents and visual materials while keeping quality and accuracy.</li><li>Communicate with clients to understand their needs and deliver on time.</li></ul></article>
+<article class="job reveal"><div class="job-head"><div><h3>IT Intern</h3><p class="org">Northern Luzon Adventist Hospital</p></div><span class="date">Jan 2025 – Apr 2025</span></div><ul class="list"><li>Supported the IT team in diagnosing and resolving network connectivity issues.</li><li>Troubleshot, maintained and repaired printers and computer hardware.</li><li>Helped maintain and optimize hospital databases and internal information systems.</li></ul></article>
+<article class="job reveal"><div class="job-head"><div><h3>Media Videographer and Editor</h3><p class="org">Northeast Luzon Adventist College</p></div><span class="date">April 2020 – July 2020</span></div><ul class="list"><li>Filmed and edited videos for school programs.</li></ul></article>
+</div></div></section>
 
-<!-- PROJECTS -->
-<section id="work">
+<section id="work" class="section"><div class="container">
+<h2 class="reveal">Selected Projects</h2><p class="section-intro reveal">Click a project to see its full details, screenshots and documents.</p>
+<div class="cards">
+<a class="card reveal" href="/projects/learning-management-system-als-sison"><div class="thumb"><span aria-hidden="true">L</span></div><div class="card-body"><p class="eyebrow">Capstone Project</p><h3>Learning Management System for ALS Sison</h3><p>A learning management system for the Alternative Learning System in Sison, Pangasinan.</p><span class="more">View project <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a>
+<a class="card reveal" href="/projects/item-monitoring-system-nlac"><div class="thumb"><span aria-hidden="true">I</span></div><div class="card-body"><p class="eyebrow">Systems Analysis and Design Project</p><h3>Item Monitoring System for NLAC Security</h3><p>A system for managing items left at the Northern Luzon Adventist College guardhouse.</p><span class="more">View project <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a>
+<a class="card reveal" href="/projects/primary-education-registration-system"><div class="thumb"><span aria-hidden="true">R</span></div><div class="card-body"><p class="eyebrow">Personal Project</p><h3>Registration System for Primary Education</h3><p>A registration system that helps parents enter their child&#x27;s basic information.</p><span class="more">View project <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a>
+</div></div></section>
 
-  <h2>Selected Projects</h2>
-
-  
-    <div class="proj">
-
-      <h3>
-        <a href="#">
-          Learning Management System for ALS Sison
-        </a>
-      </h3>
-
-      <div>
-
-        <p>
-          A learning management system for the Alternative Learning System in Sison, Pangasinan. It gives students who lack financial resources a way to study anytime and anywhere.
-        </p>
-
-        <p class="tags">
-          Capstone project
-        </p>
-
-      </div>
-
-    </div>
-
-  
-    <div class="proj">
-
-      <h3>
-        <a href="#">
-          Item Monitoring System for NLAC Security
-        </a>
-      </h3>
-
-      <div>
-
-        <p>
-          A system for the Northern Luzon Adventist College security department to manage items left at the guardhouse, so belongings are handled properly and not lost.
-        </p>
-
-        <p class="tags">
-          Systems Analysis and Design project
-        </p>
-
-      </div>
-
-    </div>
-
-  
-    <div class="proj">
-
-      <h3>
-        <a href="#">
-          Registration System for Primary Education
-        </a>
-      </h3>
-
-      <div>
-
-        <p>
-          A registration system that helps parents enter their child&#039;s basic information, making school enrollment easier and faster.
-        </p>
-
-        <p class="tags">
-          Personal project
-        </p>
-
-      </div>
-
-    </div>
-
-  
-</section>
-
-
-<!-- SKILLS -->
-<section id="skills">
-
-  <h2>What I work with</h2>
-
-  <div class="skills">
-
-    
-      <div>
-
-        <h3>
-          Development
-        </h3>
-
-        <p>
-          JavaScript, PHP, MySQL, Laravel, Angular, Tailwind CSS, HTML, CSS
-        </p>
-
-      </div>
-
-    
-      <div>
-
-        <h3>
-          Hardware and support
-        </h3>
-
-        <p>
-          Desktop and laptop repair, Hardware installation and configuration, Basic networking, Troubleshooting
-        </p>
-
-      </div>
-
-    
-      <div>
-
-        <h3>
-          Creative and office
-        </h3>
-
-        <p>
-          Adobe Creative apps, Photo and video editing, Microsoft Office (Excel, Word, PowerPoint)
-        </p>
-
-      </div>
-
-    
-  </div>
-
-</section>
-
+<section id="skills" class="section"><div class="container">
+<h2 class="reveal">Skills</h2><p class="section-intro reveal">The tools and technologies I work with.</p>
+<div class="skill-grid">
+<div class="skill reveal"><h3>Programming</h3><ul class="chips"><li class=chip>JavaScript</li><li class=chip>PHP</li><li class=chip>HTML</li><li class=chip>CSS</li></ul></div>
+<div class="skill reveal"><h3>Frameworks</h3><ul class="chips"><li class=chip>Laravel</li><li class=chip>Angular</li><li class=chip>Tailwind CSS</li></ul></div>
+<div class="skill reveal"><h3>Database</h3><ul class="chips"><li class=chip>MySQL</li></ul></div>
+<div class="skill reveal"><h3>Hardware and support</h3><ul class="chips"><li class=chip>Desktop and laptop repair</li><li class=chip>Hardware installation and configuration</li><li class=chip>Basic networking</li><li class=chip>Troubleshooting</li></ul></div>
+<div class="skill reveal"><h3>Creative and office</h3><ul class="chips"><li class=chip>Adobe Creative apps</li><li class=chip>Photo and video editing</li><li class=chip>Microsoft Office (Excel, Word, PowerPoint)</li></ul></div>
+</div></div></section>
 </main>
 
-
-<!-- CONTACT -->
-<footer id="contact">
-
-  <h2>Let's work together</h2>
-
-  <a class="mail" href="mailto:curamengray3@gmail.com">
-    curamengray3@gmail.com
-  </a>
-  <br>
-  <a class="mail" href="tel:09617758745"> 09617758745 </a>
-
-  <p>
-
-    
-      
-        <a href="https://github.com/raygie44">
-          GitHub
-        </a>
-
-        &nbsp;
-
-      
-    
-      
-        <a href="https://www.linkedin.com/in/raygienald-curameng-3275a3368/">
-          LinkedIn
-        </a>
-
-        &nbsp;
-
-      
-    
-      
-        <a href="/resume.pdf">
-          Résumé (PDF)
-        </a>
-
-        &nbsp;
-
-      
-    
-  </p>
-
+<footer id="contact" class="contact">
+  <div class="container">
+    <h2>Let's work together</h2>
+    <p class="muted">I'm open to job opportunities and freelance work. Feel free to reach out.</p>
+    <ul class="contact-list"><li><a href="mailto:curamengray3@gmail.com" aria-label="Email curamengray3@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg> curamengray3@gmail.com</a></li><li><a href="tel:09617758745" aria-label="Call 09617758745"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 09617758745</a></li><li><a href="https://github.com/raygie44" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> GitHub</a></li><li><a href="https://www.linkedin.com/in/raygienald-curameng-3275a3368/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a></li></ul>
+    <p class="copy">&copy; 2026 Raygienald B. Curameng</p>
+  </div>
 </footer>
 
-</div>
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-btn lb-close" type="button" aria-label="Close image"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous image"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+  <img src="" alt="">
+  <button class="lb-btn lb-next" type="button" aria-label="Next image"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+</dialog>
 
-
-<script>
-
-(function(){
-
-  var g = document.getElementById('grid'),
-      s = 7,
-      h = '';
-
-  function r(){
-
-    s = (s * 9301 + 49297) % 233280;
-
-    return s / 233280;
-
-  }
-
-  for(var w = 0; w < 52; w++) {
-
-    for(var d = 0; d < 7; d++) {
-
-      var v = r(),
-          l = v < .35 ? 0 :
-              v < .6 ? 1 :
-              v < .85 ? 2 : 3;
-
-      h += '<i style="background:var(--cell' + l +
-           ');animation-delay:' + (w * 12) + 'ms"></i>';
-
-    }
-
-  }
-
-  g.style.gridTemplateColumns = 'repeat(52,1fr)';
-
-  g.innerHTML = h;
-
-})();
-
-</script>
-
+<script src="/js/portfolio.js" defer></script>
 </body>
 </html>
-```
-
-
